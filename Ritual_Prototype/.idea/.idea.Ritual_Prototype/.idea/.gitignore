@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/.idea.Ritual_Prototype.iml
+/modules.xml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\adamk\OneDrive\Documents\GitHub\Ritual\Ritual_Prototype\.idea\.idea.Ritual_Prototype\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
