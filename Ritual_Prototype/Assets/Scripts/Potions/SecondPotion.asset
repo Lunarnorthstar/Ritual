@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed60760c4f750f1468b614c65b0e134b, type: 3}
+  m_Name: SecondPotion
+  m_EditorClassIdentifier: 
+  potionName: Beginner's Brew
+  steps:
+  - Stir
+  - Wing
+  - Eye
+  - Wing
+  hints:
+  - Begin when the water is agitated
+  - An eye flanked by wings
+  hintCount: 2
+  complete: 1
