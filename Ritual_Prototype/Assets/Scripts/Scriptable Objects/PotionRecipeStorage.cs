@@ -12,6 +12,9 @@ public class PotionRecipeStorage : ScriptableObject
     public string[] steps;
     
     public string[] hints;
-    public int hintCount = 3;
+    [Tooltip("The starting amount of hints")]   public int baseHintCount = 3;
+    [Tooltip("The active amount of hints - no touching! Modify baseHintCount instead.")]  public int hintCount;
     public bool complete = false;
+
+    [Tooltip("What this potion unlocks when brewed")] public string special;
 }

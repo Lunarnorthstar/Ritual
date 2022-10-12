@@ -16,7 +16,9 @@ public class CatBehavior : MonoBehaviour
 
     private bool inActPosition = false;
     public float phaseDelay = 0.5f; //The amount of time between animation frames
-    public GameObject[] actPositions;
+
+    public List<GameObject> actPositions;
+    //public GameObject[] actPositions;
     public String[] actIngredients;
     public Vector3 originalPosition;
     
@@ -53,7 +55,7 @@ public class CatBehavior : MonoBehaviour
 
         if (inActPosition && drop)
         {
-            int selection = Random.Range(0, 5);
+            int selection = Random.Range(0, actPositions.Count);
             transform.position = actPositions[selection].transform.position;
             manager.ButtonInput(actIngredients[selection]);
             drop = false;

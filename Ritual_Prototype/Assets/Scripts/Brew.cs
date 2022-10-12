@@ -12,8 +12,15 @@ public class Brew : MonoBehaviour
 
     public PotionRecipeStorage[] allRecipes; //All the potion recipes. These are Scriptable Objects
     private int longestRecipe = 0; //The amount of steps in the longest recipe
+    private int hintAvailable = 0;
 
     [SerializeField] private int viewedPage = 0; //The potion you are viewing info for
+    [SerializeField] private bool unlockedHorn = false;
+    public GameObject hornCatPos;
+    public GameObject hornSprite;
+    [SerializeField] private bool unlockedFeather = false;
+    public GameObject featherCatPos;
+    public GameObject featherSprite;
     
 
     [Header("UI")] 
@@ -22,15 +29,31 @@ public class Brew : MonoBehaviour
     public GameObject instructionsUIHints; //The hints text
     public GameObject instructionsUIName; //The title text
     public GameObject ritualUI;
+    public GameObject featherButton;
+    public GameObject hornButton;
+    public Image hintButtonSprite;
+    public Sprite hintYesSprite;
+    public Sprite hintNoSprite;
 
     public CatBehavior cat;
     private bool doesCat = false; //If the cat will act next step
+    
+    [Header("Color changing")]
+    public Color eyeColor = Color.cyan;
+    public Color tailColor = Color.green;
+    public Color wingColor = Color.black;
+    public Color LegColor = Color.yellow;
+    public Color HornColor = Color.magenta;
+    public Color featherColor = Color.gray;
+    public Color stirColor = Color.clear;
     
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < allRecipes.Length; i++) //Run through all the recipes...
         {
+            allRecipes[i].hintCount = allRecipes[i].baseHintCount; //Reset the hints to base - SOs retain data between plays
+            allRecipes[i].complete = false;
             if (allRecipes[i].steps.Length > longestRecipe) //For each recipe, if it is longer than the previous longest...
             {
                 longestRecipe = allRecipes[i].steps.Length; //Set that recipe's length as the longest.
@@ -43,6 +66,19 @@ public class Brew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (unlockedFeather)
+        {
+            featherButton.SetActive(true);
+            featherSprite.SetActive(true);
+        }
+
+        if (unlockedHorn)
+        {
+            hornButton.SetActive(true);
+            hornSprite.SetActive(true);
+        }
+        
+        
         if (step >= longestRecipe) //If you've done a number of steps equal to the longest recipe...
         {
             recipeCompare(); //Automatically test for valid potions.
@@ -53,16 +89,25 @@ public class Brew : MonoBehaviour
         {
             cauldronDisplay.text += currentRecipe[i] + " ";
         }
+
+        if (hintAvailable > 0)
+        {
+            hintButtonSprite.sprite = hintYesSprite;
+        }
+        else
+        {
+            hintButtonSprite.sprite = hintNoSprite;
+        }
     }
 
-    public void ButtonInput(string input) //Called by the ritual buttons. Adds to the cauldron.
+    public void ButtonInput(string input) //Called by the ritual buttons. Adds to the cauldron. Also handles color changing.
     {
         currentRecipe[step] = input; //Take the input from the button and add it to the array at the current step...
         step++; //Increment the step count by one.
 
-        if (step < longestRecipe-1) //If you aren't done with the potion...
+        if (step < longestRecipe) //If you aren't done with the potion...
         {
-            if (!doesCat) //If the cat isn't about to activate...
+            if (!doesCat && step < longestRecipe-1) //If the cat isn't about to activate...
             {
                 doesCat = cat.CatTest(); //Check to see if the cat will activate.
             }
@@ -71,6 +116,25 @@ public class Brew : MonoBehaviour
                 cat.Cat(); //Activate the cat.
                 doesCat = false;
             }
+        }
+
+        SpriteRenderer potion = gameObject.GetComponent<SpriteRenderer>();
+        switch (input)
+        {
+            case "Eye": potion.color = eyeColor;
+                break;
+            case "Tail": potion.color = tailColor;
+                break;
+            case "Wing": potion.color = wingColor;
+                break;
+            case "Leg": potion.color = LegColor;
+                break;
+            case "Horn": potion.color = HornColor;
+                break;
+            case "Feather": potion.color = featherColor;
+                break;
+            case "Stir": potion.color = stirColor;
+                break;
         }
         
     }
@@ -115,14 +179,28 @@ public class Brew : MonoBehaviour
             winUI.SetActive(true); //Activate the win UI...
             winUI.GetComponentInChildren<Text>().text = "You brewed the " + allRecipes[recipeHit].potionName; //Display the brewed potion in the UI...
             allRecipes[recipeHit].complete = true; //Mark the given potion as complete (carries over between plays, currently no use)
+
+            if (allRecipes[recipeHit].special == "HornUnlock" && !unlockedHorn)
+            {
+                unlockedHorn = true;
+                cat.GetComponent<CatBehavior>().actPositions.Add(hornCatPos);
+            }
+
+            if (allRecipes[recipeHit].special == "FeatherUnlock" && !unlockedFeather)
+            {
+                unlockedFeather = true;
+                cat.GetComponent<CatBehavior>().actPositions.Add(featherCatPos);
+            }
+            
             ResetCauldron(); //Clear the player's cauldron.
         }
         else //If no potion recipes match the player's cauldron...
         {
             loseUI.SetActive(true); //Activate the failure UI...
             ResetCauldron(); //And clear the player's cauldron.
-            //hints++; //Get one more hint
         }
+
+        hintAvailable++;
     }
 
     void ResetCauldron() //Clear's the player's inputs and resets the potion making process.
@@ -131,14 +209,25 @@ public class Brew : MonoBehaviour
         step = 0; //Reset back to the first step
         cat.catActive = true;
         doesCat = false;
+        cat.GetComponent<SpriteRenderer>().sprite = cat.GetComponent<CatBehavior>().restSprite;
     }
 
     public void switchHintView(int i) //Switches the potion hints you are viewing. Input should be either 1 or -1.
     {
-        if (viewedPage + i < allRecipes.Length && viewedPage + i >= 0) //If the current index plus the input is within the bounds of available potions...
+        if (viewedPage + i < allRecipes.Length && viewedPage + i >= -1) //If the current index plus the input is within the bounds of available potions...
         {
             viewedPage += i; //Apply the change.
         }
         //Otherwise, don't.
+    }
+
+    public void GetHint()
+    {
+        int randint = Random.Range(0, allRecipes.Length);
+        if (hintAvailable > 0 && allRecipes[randint].hintCount < allRecipes[randint].hints.Length)
+        {
+            allRecipes[randint].hintCount++;
+            hintAvailable--;
+        }
     }
 }

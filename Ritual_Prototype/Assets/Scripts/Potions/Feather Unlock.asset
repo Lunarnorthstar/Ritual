@@ -10,19 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed60760c4f750f1468b614c65b0e134b, type: 3}
-  m_Name: SecondPotion
+  m_Name: Feather Unlock
   m_EditorClassIdentifier: 
-  potionName: Beginner's Brew
+  potionName: Raven Feather (New Ingredient)
   steps:
+  - Wing
   - Stir
-  - Wing
-  - Eye
-  - Wing
+  - Stir
+  - Stir
+  - Stir
+  - Stir
+  - Stir
   hints:
-  - Begin when the water is agitated
-  - An eye flanked by wings
-  - Stir, Wing, Eye, Wing.
-  baseHintCount: 2
-  hintCount: 4
+  - Reduce the Wing to nothing
+  - Stir once for each hour of the morning
+  - Moring is 7:00 to 12:00
+  - Remember to include 7:00 and 12:00!
+  baseHintCount: 1
+  hintCount: 1
   complete: 1
-  special: 
+  special: FeatherUnlock

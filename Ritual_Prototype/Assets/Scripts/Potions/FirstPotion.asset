@@ -21,5 +21,8 @@ MonoBehaviour:
   - Start with what sees
   - Newt's Tail at the midpoint
   - End with a stir
-  hintCount: 3
+  - Eye, Tail, Stir.
+  baseHintCount: 3
+  hintCount: 4
   complete: 1
+  special: 
