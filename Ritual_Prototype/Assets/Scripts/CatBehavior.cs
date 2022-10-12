@@ -38,6 +38,11 @@ public class CatBehavior : MonoBehaviour
     {
         if (kickoff)
         {
+            if (!gameObject.GetComponent<AudioSource>().isPlaying)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+
             timer += Time.deltaTime;
             if (timer >= phaseDelay && !inActPosition) //When the timer is up and you aren't in acting position...
             {
@@ -49,12 +54,14 @@ public class CatBehavior : MonoBehaviour
                 inActPosition = false;
                 kickoff = false;
                 timer = 0;
+                gameObject.GetComponent<AudioSource>().Stop();
             }
 
         }
 
         if (inActPosition && drop)
         {
+            
             int selection = Random.Range(0, actPositions.Count);
             transform.position = actPositions[selection].transform.position;
             manager.ButtonInput(actIngredients[selection]);
@@ -63,6 +70,7 @@ public class CatBehavior : MonoBehaviour
 
         if (!inActPosition && !drop)
         {
+            
             drop = true;
             transform.position = originalPosition;
             manager.ritualUI.SetActive(true);
