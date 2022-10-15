@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Horn Unlock
   m_EditorClassIdentifier: 
   potionName: Unicorn Horn (New Ingredient)
+  potionDesc: A shimmering artificial unicorn horn.  No harm was done to unicorns
+    in the making of this ingredient.
   steps:
   - Eye
   - Leg
@@ -20,10 +22,11 @@ MonoBehaviour:
   hints:
   - Three Core Body Parts
   - Sight and Speed and Swish
-  - The Tail comes last
-  - Start with the same ingredient as the Witch's Brim
-  - Leg in the middle
-  baseHintCount: 2
-  hintCount: 2
-  complete: 1
+  - Place them in that order and be sure to make a wish!
+  - Mom says I need three different ingredients
+  - Mom says the eye should go in before the leg
+  - Mom says the tail and the eye should be next to each other
+  baseHintCount: 3
+  hintCount: 3
+  complete: 0
   special: HornUnlock

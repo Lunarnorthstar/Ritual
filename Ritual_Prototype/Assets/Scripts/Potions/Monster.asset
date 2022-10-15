@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed60760c4f750f1468b614c65b0e134b, type: 3}
+  m_Name: Monster
+  m_EditorClassIdentifier: 
+  potionName: Draught of Formless Fear
+  potionDesc: Mom took this one away before I could try it...
+  steps:
+  - Eye
+  - Eye
+  - Eye
+  - Leg
+  - Leg
+  - Tail
+  - Stir
+  - Stir
+  hints:
+  - All the words have been scratched out...
+  - My monster has 3 eyes he uses to watch me go
+  - My monster has two arms to catch me if I'm slow
+  - My monster has a tail that goes bump in the night
+  - When I see my monster I spin it twice to set it right
+  baseHintCount: 1
+  hintCount: 1
+  complete: 0
+  special: 

@@ -7,6 +7,7 @@ using UnityEngine;
 public class PotionRecipeStorage : ScriptableObject
 {
     public string potionName;
+    public string potionDesc;
     
     [Header("All steps should be in proper noun case. THESE ARE CASE SENSITIVE!")]
     public string[] steps;

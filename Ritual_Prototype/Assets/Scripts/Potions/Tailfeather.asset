@@ -10,23 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed60760c4f750f1468b614c65b0e134b, type: 3}
-  m_Name: Feather Unlock
+  m_Name: Tailfeather
   m_EditorClassIdentifier: 
-  potionName: Raven Feather (New Ingredient)
-  potionDesc: A lovely black Raven's Feather.
+  potionName: Agility Potion
+  potionDesc: Makes you run super fast!
   steps:
-  - Wing
-  - Stir
-  - Stir
-  - Stir
-  - Stir
-  - Stir
+  - Feather
+  - Leg
+  - Tail
+  - Leg
   hints:
-  - If you haven't got a feather then any wing will do,
-  - Stir it once for half your fingers and the feather comes to you!
-  - Mom says I need to stir five times
-  - Mom says this potion starts with a wing
+  - Run, light as a feather...
+  - ...With your tail between your legs
+  - Mom says this potion uses three different ingredients
+  - Mom says this potion has four steps
+  - Mom says the order of the instructions is important
   baseHintCount: 2
   hintCount: 2
   complete: 0
-  special: FeatherUnlock
+  special: 

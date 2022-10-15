@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed60760c4f750f1468b614c65b0e134b, type: 3}
+  m_Name: Sharpeye
+  m_EditorClassIdentifier: 
+  potionName: Potion of Night Vision
+  potionDesc: Lets you see in the dark.
+  steps:
+  - Eye
+  - Eye
+  - Stir
+  - Horn
+  hints:
+  - If your two eyes can't see in the night,
+  - Stir them from their slumber,
+  - ...and sharpen them just right!
+  - Mom says I need two eyes and one other ingredient
+  - Mom says I should stir between each ingredient of a different type
+  - Mom says The eyes should go in before anything else
+  baseHintCount: 3
+  hintCount: 3
+  complete: 0
+  special: 

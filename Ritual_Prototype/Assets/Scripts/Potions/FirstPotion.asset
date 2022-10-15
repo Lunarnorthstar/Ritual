@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: FirstPotion
   m_EditorClassIdentifier: 
   potionName: Witch's Brim
+  potionDesc: Every good Witch starts by brewing their hat!
   steps:
   - Eye
   - Tail
+  - Eye
   - Stir
   hints:
-  - Start with what sees
-  - Newt's Tail at the midpoint
-  - End with a stir
-  - Eye, Tail, Stir.
-  baseHintCount: 3
+  - To make the perfect Witch's hat you have to see it first,
+  - A tail is in the perfect shape, a wing would be the worst,
+  - Once you've got it in the pot, stop and look before...
+  - You mix it all together and move on to read some more!
+  - Mom says this potion has four steps
+  - Mom says there are two eyes in this potion
+  - Mom says that the last thing I should do is stir
+  - Mom says that there's a tail in between the two eyes
+  baseHintCount: 4
   hintCount: 4
-  complete: 1
+  complete: 0
   special: 

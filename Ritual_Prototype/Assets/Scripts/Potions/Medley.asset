@@ -10,23 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed60760c4f750f1468b614c65b0e134b, type: 3}
-  m_Name: Feather Unlock
+  m_Name: Medley
   m_EditorClassIdentifier: 
-  potionName: Raven Feather (New Ingredient)
-  potionDesc: A lovely black Raven's Feather.
+  potionName: Omnibrew
+  potionDesc: Makes you remember where you put lost things.
   steps:
+  - Eye
+  - Tail
   - Wing
-  - Stir
-  - Stir
-  - Stir
-  - Stir
-  - Stir
+  - Leg
+  - Horn
+  - Feather
   hints:
-  - If you haven't got a feather then any wing will do,
-  - Stir it once for half your fingers and the feather comes to you!
-  - Mom says I need to stir five times
-  - Mom says this potion starts with a wing
+  - A good Witch uses all their ingredients
+  - Eight Tiny Watermelons Like Hungry Friends
+  - Mom says the ingredients are in the right order on the shelf
   baseHintCount: 2
   hintCount: 2
   complete: 0
-  special: FeatherUnlock
+  special: 

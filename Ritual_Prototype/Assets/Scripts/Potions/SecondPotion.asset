@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: SecondPotion
   m_EditorClassIdentifier: 
   potionName: Beginner's Brew
+  potionDesc: Changes colors, but doesn't do anything else.
   steps:
   - Stir
   - Wing
   - Eye
   - Wing
   hints:
-  - Begin when the water is agitated
-  - An eye flanked by wings
-  - Stir, Wing, Eye, Wing.
+  - Stir the boring water so it's swirling up and down!
+  - Then drop the flying eye inside and watch it spin around!
+  - Mom says there are two wings in this potion
+  - Mom says the third thing I should do is add an eye
+  - Mom says I should start by stirring
   baseHintCount: 2
-  hintCount: 4
-  complete: 1
+  hintCount: 2
+  complete: 0
   special: 

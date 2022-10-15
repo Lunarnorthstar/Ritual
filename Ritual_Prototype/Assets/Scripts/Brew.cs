@@ -25,6 +25,8 @@ public class Brew : MonoBehaviour
 
     [Header("UI")] 
     public GameObject winUI;
+    public Text potionNameText;
+    public Text potionDescText;
     public GameObject loseUI;
     public GameObject instructionsUIHints; //The hints text
     public GameObject instructionsUIName; //The title text
@@ -177,7 +179,8 @@ public class Brew : MonoBehaviour
         if (recipeHit != -1) //If any potion succeeded...
         {
             winUI.SetActive(true); //Activate the win UI...
-            winUI.GetComponentInChildren<Text>().text = "You brewed the " + allRecipes[recipeHit].potionName; //Display the brewed potion in the UI...
+            potionNameText.GetComponent<Text>().text = "You brewed the " + allRecipes[recipeHit].potionName + "!"; //Display the brewed potion in the UI...
+            potionDescText.GetComponent<Text>().text = allRecipes[recipeHit].potionDesc; //Display the brewed potion in the UI...
             allRecipes[recipeHit].complete = true; //Mark the given potion as complete (carries over between plays, currently no use)
 
             if (allRecipes[recipeHit].special == "HornUnlock" && !unlockedHorn)
